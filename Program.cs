@@ -16,10 +16,11 @@ namespace ExamenProgramacio
             int divNum;
             bool isValid;
 
-            isValid = true;
+            
             num = 1;
             while(num != 0)
             {
+                isValid = true;
                 Console.WriteLine(INTROMSG);
                 try
                 {
