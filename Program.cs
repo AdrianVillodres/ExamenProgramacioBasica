@@ -10,7 +10,7 @@ namespace ExamenProgramacio
             const string NUMMSG = "The numbers that are divisors of {0} are: ";
             const string ERRORMSG = "Error, give me a integer number(n > 0) or 0";
             const string OUTPUTMSG = "{0} ";
-            const string ZEROMSG = "Programa finalitzat";
+            const string ZEROMSG = "Program finished";
 
             int num;
             int divNum;
