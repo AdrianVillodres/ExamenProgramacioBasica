@@ -22,10 +22,11 @@ namespace ExamenProgramacio
             coins = 0;
             lives = 3;
             num = 0;
-            isValid = true;
+            
 
             while(lives > 0 && coins < 5)
             {
+                isValid = true;
                 Console.WriteLine(INTROMSG);
                 try
                 {
