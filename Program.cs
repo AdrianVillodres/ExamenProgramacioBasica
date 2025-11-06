@@ -6,25 +6,19 @@ namespace ExamenProgramacio
     {
         public static void Main()
         {
-            const string INTROMSG = "Give me a number beeween 1 and 5, if you answer the number you will find a trap";
-            const string ERRORMSG = "Error, give me an integer number between 1 and 5";
-            const string TRAPMSG = "You found a trap, lives left: ";
-            const string COINMSG = "You found a coin, coins: ";
-            const string WINMSG = "You've won!";
-            const string LOSEMSG = "You've lost!";
-            const int COINSFORWIN = 5;
+            const string INTROMSG = "Give me a number(0 if you want to exit): ";
+            const string NUMMSG = "The numbers that are divisors of {0} are: ";
+            const string ERRORMSG = "Error, give me a integer number(n > 0) or 0";
+            const string OUTPUTMSG = "{0} ";
+            const string ZEROMSG = "Programa finalitzat";
 
-            int lives, coins, num;
-
-            bool trapFound;
+            int num;
+            int divNum;
             bool isValid;
 
-            coins = 0;
-            lives = 3;
-            num = 0;
             isValid = true;
-
-            while(lives > 0 && coins < 5)
+            num = 1;
+            while(num != 0)
             {
                 Console.WriteLine(INTROMSG);
                 try
@@ -49,31 +43,32 @@ namespace ExamenProgramacio
 
                 if (isValid)
                 {
-                    if(num == 3)
+                    if(num > 0)
                     {
-                        lives -= 1;
-                        Console.WriteLine($"{TRAPMSG}{lives}");
-                    }else if(num < 1 || num > 5)
+                        Console.Write(NUMMSG, num);
+                        for (int i = 1; i <= num; i++)
+                        {
+                            if (num % i == 0)
+                            {
+                                Console.Write(OUTPUTMSG, i);
+                            }
+                        }
+                        Console.WriteLine();
+                    }
+                    else if(num == 0)
                     {
-                        Console.WriteLine(ERRORMSG);
+                        Console.WriteLine(ZEROMSG);
                     }
                     else
                     {
-                        coins += 1;
-                        Console.WriteLine($"{COINMSG}{coins}");
+                        Console.WriteLine(ERRORMSG);
                     }
                 }
-            }
-            if (coins == COINSFORWIN)
-            {
-                Console.WriteLine(WINMSG);
-            }
-            else
-            {
-                Console.WriteLine(LOSEMSG);
+
             }
 
 
+            
         }
     }
 }
